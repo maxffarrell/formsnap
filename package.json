@@ -6,6 +6,7 @@
 	"author": "Hunter Johnston <https://github.com/huntabyte>",
 	"main": "index.js",
 	"scripts": {
+		"test:security": "node --test scripts/dependency-security.test.mjs",
 		"test": "pnpm -r test",
 		"dev": "pnpm -F \"./packages/**\" svelte-kit sync && pnpm -r --parallel --reporter append-only --color dev",
 		"test:package": "pnpm -F \"./packages/**\" test",
@@ -46,5 +47,10 @@
 		"pnpm": ">=9.0.0",
 		"node": ">=18"
 	},
-	"packageManager": "pnpm@9.14.4"
+	"packageManager": "pnpm@9.14.4",
+	"pnpm": {
+		"overrides": {
+			"ts-deepmerge@<8.0.0": "8.0.0"
+		}
+	}
 }
